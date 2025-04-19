@@ -5,8 +5,11 @@ from django.http import HttpResponse, HttpResponseNotFound
 
 def index(request):
     return HttpResponse("this is working!")
+
+def monthley_challenges_by_number(request, month):
+    return HttpResponse(month)
     
-def monthly_challenge(request, month):
+def monthly_challenges(request, month):
     challenge_text = None
     if month == "january":
         challenge_text = "Eat no meat for the entire month!"
