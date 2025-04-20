@@ -44,7 +44,7 @@ def monthly_challenge(request, month):
         challenge_text = monthley_challenges[month]
         return render(request,"challenges/challenge.html",{
             "text": challenge_text,
-            "month": month.capitalize(),
+            "month": month,
             "back_link": reverse("index")
         })
       
