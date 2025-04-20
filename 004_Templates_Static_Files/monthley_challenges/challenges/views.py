@@ -15,7 +15,7 @@ monthley_challenges = {
     "september": "Limit screen time to 2 hours outside of work!",
     "october": "Avoid sugary snacks for the whole month!",
     "november": "Wake up before 7 AM every day!",
-    "december": "Perform one act of kindness each day!"
+    "december": None
 }
 months = list(monthley_challenges.keys())
 
