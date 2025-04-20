@@ -42,7 +42,11 @@ def monthley_challenge_by_number(request, month):
 def monthly_challenge(request, month):
     try:
         challenge_text = monthley_challenges[month]
-        return render(request,"challenges/challenge.html")
+        return render(request,"challenges/challenge.html",{
+            "text": challenge_text,
+            "month": month.capitalize(),
+            "back_link": reverse("index")
+        })
       
     except:
         return HttpResponseNotFound("<h1>This month is not supported!</h1>")
