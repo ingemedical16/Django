@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
+from django.template.loader import render_to_string
 
 monthley_challenges = {
     "january": "Eat no meat for the entire month!",
@@ -39,32 +40,9 @@ def monthley_challenge_by_number(request, month):
     return HttpResponseRedirect(redirect_path)
     
 def monthly_challenge(request, month):
-    challenge_text = monthley_challenges.get(month.lower())
-    back_link = reverse("index")  # assumes your index view is named 'index'
-
-    if challenge_text:
-        response_data = f"""
-            <html>
-                <head>
-                    <title>{month.capitalize()} Challenge</title>
-                </head>
-                <body>
-                    <h1>{challenge_text}</h1>
-                    <a href="{back_link}">← Back to all challenges</a>
-                </body>
-            </html>
-        """
+    try:
+        challenge_text = monthley_challenges[month]
+        response_data = render_to_string("challenges/challenge.html")
         return HttpResponse(response_data)
-    else:
-        return HttpResponseNotFound(f"""
-            <html>
-                <head>
-                    <title>Invalid Month</title>
-                </head>
-                <body>
-                    <h1>This month is not supported!</h1>
-                    <p>Please choose a valid month.</p>
-                    <a href="{back_link}">← Back to all challenges</a>
-                </body>
-            </html>
-        """)
+    except:
+        return HttpResponseNotFound("<h1>This month is not supported!</h1>")
