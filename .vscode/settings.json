@@ -7,5 +7,10 @@
     "**/templates/**/*": "django-txt",
     "**/requirements{/**,*}.{txt,in}": "pip-requirements"
 },
-   
+"emmet.includeLanguages": {
+    "django-html": "html"
+},
+"emmet.triggerExpansionOnTab": true,
+"emmet.showSuggestionsAsSnippets": true,
 }
+   
