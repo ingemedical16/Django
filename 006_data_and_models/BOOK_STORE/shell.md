@@ -78,3 +78,7 @@ AttributeError: type object 'Book' has no attribute 'all'
 >>> Book.objects.all()[1].is_bestselling
 True
 >>> 
+### Delete Data
+>>> harry_potter = Book.objects.all()[0]
+>>> harry_potter.delete()
+(1, {'book_outlet.Book': 1})
