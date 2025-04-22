@@ -53,3 +53,28 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> Book.objects.all()[1].author
 >>> Book.objects.all()[1].is_bestselling
 False
+
+### Update Data
+ harry_potter = Book.all()[0]
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: type object 'Book' has no attribute 'all'
+>>> harry_potter = Book.objects.all()[0]
+>>> harry_potter.title
+"Harry Potter 1 - The Philosopher's Stone"
+>>> lotr = Book.objects.all()[1]
+>>> lotr.title
+'Lord of the Rings'
+>>> harry_potter.author = "J.K. Rowling"
+>>> harry_potter.is_bestselling = True
+>>> harry_potter.save()
+>>> Book.objects.all()[0].author
+'J.K. Rowling'
+>>> lotr.author ="J.R.R Tolkien"
+>>> lotr.is_bestselling = True
+>>> lotr.save()
+>>> Book.objects.all()[1].author
+'J.R.R Tolkien'
+>>> Book.objects.all()[1].is_bestselling
+True
+>>> 
