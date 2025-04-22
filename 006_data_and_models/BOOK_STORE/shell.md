@@ -82,3 +82,7 @@ True
 >>> harry_potter = Book.objects.all()[0]
 >>> harry_potter.delete()
 (1, {'book_outlet.Book': 1})
+
+### Create Instance of Save
+Book.objects.create(title="Some random book", rating=1, author="Random Duede", is_bestselling=False)
+<Book: Some random book (1)>
