@@ -1,5 +1,5 @@
 {
-    "window.zoomLevel": 6,
+    "window.zoomLevel": 2,
     "python.languageServer": "Pylance",
     "files.associations": {
     "**/*.html": "html",
