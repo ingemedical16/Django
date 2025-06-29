@@ -14,13 +14,9 @@ class Book(models.Model):
     is_bestselling = models.BooleanField(default=False)
     slug = models.SlugField(default="",null=False,
     blank=True,
-    editable=False,
     db_index=True)
    
     def get_absolute_url(self):
         return reverse("book-detail", args=[ self.slug])
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
-        return super().save(*args, **kwargs)
     def __str__(self):
         return f"{self.title} ({self.rating})"
