@@ -13,7 +13,7 @@ class Book(models.Model):
     rating = models.FloatField(
         validators=[MinValueValidator(1), MaxValueValidator(5)]
     )
-    author = models.ForeignKey(Author,on_delete=models.CASCADE, null=True)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE,  null=True)
     is_bestselling = models.BooleanField(default=False)
     slug = models.SlugField(default="",null=False,
     blank=True,
