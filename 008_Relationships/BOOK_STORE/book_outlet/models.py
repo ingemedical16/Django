@@ -40,7 +40,7 @@ class Book(models.Model):
     slug = models.SlugField(default="",null=False,
     blank=True,
     db_index=True)
-    published_countries = models.ManyToManyField(Country)
+    published_countries = models.ManyToManyField(Country, null=False)
    
     def get_absolute_url(self):
         return reverse("book-detail", args=[ self.slug])
