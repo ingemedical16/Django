@@ -26,6 +26,7 @@ SECRET_KEY = "django-insecure-wc+4$od%r^-clvp21lq^z#$j!z-c^@9!75_)v$20hh3v!$h+^x
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    "localhost",
     "8000-codeanywhere-templates-p-mtwweiepd5.app.codeanywhere.com"
 ]
 
