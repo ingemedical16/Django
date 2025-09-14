@@ -9,8 +9,8 @@ def review(request):
        if form.is_valid():
             print(form.cleaned_data)
             return redirect('thank_you')
-       
-    form = ReviewFrom()
+    else:   
+        form = ReviewFrom()
     
     return render(request,"reviews/review.html",{
         "form":form
