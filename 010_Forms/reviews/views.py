@@ -8,11 +8,7 @@ def review(request):
     if request.method == 'POST':
        form = ReviewFrom(request.POST)
        if form.is_valid():
-            review = Review(
-                user_name = form.cleaned_data['user_name'], 
-                review_text = form.cleaned_data['review_text'], 
-                rating = form.cleaned_data['rating'])
-            review.save()
+            form.save()
             return redirect('thank_you')
     else:   
         form = ReviewFrom()
