@@ -2,7 +2,9 @@ from django.urls import path
 
 from  . import views
 urlpatterns = [
-path("",views.ReviewView.as_view()),
+path("",views.ReviewListView.as_view(), name='review_list'),
+path("add-review",views.ReviewView.as_view(), name='add_review'),
 path("thank-you",views.ThankYouView.as_view(), name='thank_you'),
-path("reviews",views.ReviewListView.as_view(), name='reviews_list'),
+
+path("reviews/<int:id>",views.SingleReviewView.as_view(), name='review_detail'),
 ]

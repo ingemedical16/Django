@@ -196,4 +196,67 @@ button:active {
 .review-link:hover {
   color: #320777;
 }
+/* Review Detail */
+.review-detail {
+  max-width: 40rem;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.review-detail-title {
+  margin-top: 0;
+  font-size: 1.8rem;
+  color: #1f0050;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.review-detail-rating {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rating-number {
+  font-weight: bold;
+  color: #333;
+}
+
+.review-stars {
+  font-size: 1.3rem;
+  color: #ffb400;
+}
+
+.star {
+  margin-right: 2px;
+}
+
+.star.filled {
+  color: #ffb400;
+}
+
+.review-detail-text {
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #444;
+  margin: 1.5rem 0;
+}
+
+.back-link {
+  display: inline-block;
+  text-decoration: none;
+  color: #1f0050;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #320777;
+}
+
 

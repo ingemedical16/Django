@@ -22,8 +22,8 @@
           {% endfor %}
         </p>
 
-        <!-- Link to detail view  'review_detail' review.id %}-->
-        <a href="" class="review-link">Read more</a>
+        <!-- Link to detail view  -->
+        <a href="{% url 'review_detail' review.id %}" class="review-link">Read more</a>
       </li>
     {% empty %}
       <li class="review-item review-empty">No reviews yet.</li>
