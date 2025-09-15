@@ -2,27 +2,22 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView
+from django.views.generic.edit import FormView
 from .forms import ReviewFrom
 from .models import Review
 
 # Create your views here.
 
-class ReviewView(View):
-    def get(self, request):
-        form = ReviewFrom()
-
-        return render(request,"reviews/review.html",{
-        "form":form
-    })
-
-    def post(self, request):
-        form = ReviewFrom(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('thank_you')
-        return render(request,"reviews/review.html",{
-        "form":form
-    })
+class ReviewView(FormView):
+    template_name = "reviews/review.html"
+    form_class = ReviewFrom
+    success_url = "/thank-you"
+    
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
+    
+   
 
 class ThankYouView(TemplateView):
     template_name = "reviews/thank_you.html"
