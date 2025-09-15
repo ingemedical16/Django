@@ -1,0 +1,33 @@
+{% extends 'reviews/base.html' %}
+
+{% block title %}All Reviews{% endblock %}
+
+{% block content %}
+  <ul class="review-list">
+    {% for review in reviews %}
+      <li class="review-item">
+        <p class="review-header">
+          <strong class="review-user">{{ review.user_name }}</strong>
+          <span class="review-rating"> - {{ review.rating }}/5</span>
+        </p>
+
+        <!-- Star rating -->
+        <p class="review-stars">
+          {% for i in "12345"|make_list %}
+            {% if forloop.counter <= review.rating %}
+              <span class="star filled">★</span>
+            {% else %}
+              <span class="star">☆</span>
+            {% endif %}
+          {% endfor %}
+        </p>
+
+        <!-- Link to detail view  'review_detail' review.id %}-->
+        <a href="" class="review-link">Read more</a>
+      </li>
+    {% empty %}
+      <li class="review-item review-empty">No reviews yet.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
+
