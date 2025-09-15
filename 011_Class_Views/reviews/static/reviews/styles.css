@@ -1,8 +1,59 @@
+/* Global styles */
 body {
   font-family: sans-serif;
   margin: 0;
+  background-color: #f9f9f9;
+  color: #333;
 }
 
+/* Header */
+header {
+  background-color: #1f0050;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #d0bdf4;
+}
+
+/* Main */
+main {
+  padding: 2rem;
+  min-height: 70vh;
+}
+
+/* Footer */
+footer {
+  background-color: #1f0050;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+}
+
+/* Form styles */
 form {
   margin: 3rem auto;
   width: 90%;
@@ -20,6 +71,7 @@ button {
   background-color: #1f0050;
   color: white;
   border: 1px solid #1f0050;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 button:hover,
@@ -28,17 +80,18 @@ button:active {
   border-color: #320777;
 }
 
+/* Form controls */
 .form-control {
   margin-bottom: 1rem;
 }
 
 .form-control input {
   font: inherit;
-  padding: 0.25rem;
+  padding: 0.5rem;
   border-radius: 4px;
   border: 1px solid #ccc;
   display: block;
-  width: 10rem;
+  width: 100%;
 }
 
 .form-control input:focus {
@@ -53,6 +106,7 @@ button:active {
   margin-bottom: 0.5rem;
 }
 
+/* Errors */
 .errorlist {
   list-style: none;
   margin: 0.5rem 0;
