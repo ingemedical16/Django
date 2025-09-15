@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
+from django.views.generic import TemplateView
 from .forms import ReviewFrom
 from .models import Review
 
@@ -22,5 +23,12 @@ class ReviewView(View):
         "form":form
     })
 
-def thank_you(request):
-    return render(request,"reviews/thank_you.html")
+class ThankYouView(TemplateView):
+    template_name = "reviews/thank_you.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["message"] = "Your review has been submitted successfully."
+        return context
+
+
