@@ -120,7 +120,7 @@ STATIC_URL = "static/"
 
 MEDIA_ROOT = BASE_DIR / 'uploads'
 MEDIA_URL = '/media/'
-
+SESSION_COOKIE_AGE = 1209600  # Two weeks in seconds
 
 
 # Default primary key field type
