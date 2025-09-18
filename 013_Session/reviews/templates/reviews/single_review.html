@@ -4,7 +4,13 @@
 
 {% block content %}
   <div class="review-detail">
-    <h2 class="review-detail-title">Review by {{ review.user_name }}</h2>
+    <div class="review-detail-header">
+      <h2 class="review-detail-title">Review by {{ review.user_name }}</h2>
+      {% if is_favorite %}
+        <!-- Heart icon top right -->
+        <span class="favorite-heart">❤️</span>
+      {% endif %}
+    </div>
 
     <!-- Rating number + stars -->
     <div class="review-detail-rating">
@@ -23,14 +29,16 @@
     <!-- Review text -->
     <p class="review-detail-text">{{ review.review_text }}</p>
 
-    <!-- Favorite button -->
-     <form method="post" action="{% url 'toggle_favorite' review.id %}">
-      {% csrf_token %}
-
-    <button class="favorite-btn {% if True %}active{% endif %}">
-      ❤️ {% if True%} Remove from Favorites {% else %} Add to Favorites {% endif %}
-    </button>
-    </form>
+    <!-- Show button only if not favorite -->
+    {% if not is_favorite %}
+      <form method="post" action="{% url 'add_favorite' %}">
+        {% csrf_token %}
+        <input type="hidden" name="review_id" value="{{ review.id }}">
+        <button class="favorite-btn">
+          ❤️ Add to Favorites
+        </button>
+      </form>
+    {% endif %}
 
     <!-- Back link -->
     <a href="{% url 'review_list' %}" class="back-link">← Back to all reviews</a>

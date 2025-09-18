@@ -293,5 +293,20 @@ button:active {
   color: #b91c1c;
 }
 
+/* Review detail header with heart */
+.review-detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.favorite-heart {
+  font-size: 1.8rem;
+  color: #e63946; /* rouge */
+  margin-left: 1rem;
+}
+
+
 
 
