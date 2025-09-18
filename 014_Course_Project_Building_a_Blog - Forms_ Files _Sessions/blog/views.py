@@ -14,9 +14,9 @@ def index(request):
     })
 
 def posts(request):
-    all_posts =  Post.objects.all().order_by("-date")
-    return render(request, 'blog/all-posts.html',{
-        "all_posts": all_posts
+    all_posts = Post.objects.filter(image__isnull=False).order_by("-date") # fetch ALL posts, newest first
+    return render(request, "blog/all-posts.html", {
+        "all_posts": all_posts,
     })
 
 def post_detail(request,slug):
