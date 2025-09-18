@@ -259,4 +259,39 @@ button:active {
   color: #320777;
 }
 
+/* Favorite button */
+.favorite-btn {
+  background: none;
+  border: 2px solid #1f0050;
+  color: #1f0050;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.favorite-btn:hover {
+  background-color: #f4eeff;
+  border-color: #320777;
+  color: #320777;
+}
+
+.favorite-btn.active {
+  background-color: #ffeff0;
+  border-color: #e63946;
+  color: #e63946;
+}
+
+.favorite-btn.active:hover {
+  background-color: #ffd6db;
+  border-color: #b91c1c;
+  color: #b91c1c;
+}
+
+
 

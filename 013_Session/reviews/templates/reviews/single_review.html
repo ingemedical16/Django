@@ -23,7 +23,14 @@
     <!-- Review text -->
     <p class="review-detail-text">{{ review.review_text }}</p>
 
-    <button>Favorite</button>
+    <!-- Favorite button -->
+     <form method="post" action="{% url 'toggle_favorite' review.id %}">
+      {% csrf_token %}
+
+    <button class="favorite-btn {% if True %}active{% endif %}">
+      ❤️ {% if True%} Remove from Favorites {% else %} Add to Favorites {% endif %}
+    </button>
+    </form>
 
     <!-- Back link -->
     <a href="{% url 'review_list' %}" class="back-link">← Back to all reviews</a>

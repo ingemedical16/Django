@@ -36,4 +36,10 @@ class SingleReviewView(DetailView):
     model = Review
     #context_object_name = "review"
     #pk_url_kwarg = "id"
+
+class AddFavoriteView(View):
+    def post(self, request, pk):
+        fav_review = Review.objects.get(pk=pk)
+        request.session['favorite_review'] = fav_review
+        return redirect("review_detail", pk=pk)
     
