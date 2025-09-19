@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView,DetailView
+from django.views.generic.base import View
+from django.shortcuts import redirect
 
 
 from .models import Post 
@@ -29,16 +31,35 @@ class PostListView(ListView):
         queryset = super().get_queryset()
         return queryset.filter(image__isnull=False).order_by("-date")
 
-class PostDetailView(DetailView):
+class PostDetailView(View):
     template_name = "blog/post-detail.html"
     model = Post
-    context_object_name = "post"
+    
+    def get(self, request, slug):
+        post = get_object_or_404(Post, slug=slug)
+        context = {
+            "post": post,
+            "post_tags": post.tags.all(),
+            "comment_form": CommentForm(),
+            "comments": post.comments.order_by("-date")
+        }
+        return render(request, self.template_name, context)
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["post_tags"] = self.object.tags.all()
-        context["comment_form"] = CommentForm()
-        context["comments"] = self.object.comments.order_by("-date")
-        return context
+    def post(self, request, slug):
+        post = get_object_or_404(Post, slug=slug)
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.post = post
+            comment.save()
+            return redirect("post_detail", slug=post.slug)
+        
+        context = {
+            "post": post,
+            "post_tags": post.tags.all(),
+            "comment_form": comment_form,
+            "comments": post.comments.order_by("-date")
+        }
+        return render(request, self.template_name, context)
 
 

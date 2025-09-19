@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+My Blog
+{% endblock %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'blog/styles/post.css' %}">
+<link rel="stylesheet" href="{% static 'blog/styles/index.css' %}">
+{% endblock %}
+{% block content %}
+
+<section id="welcome">
+    <header>
+    <img src="{% static 'blog/images/me.png'%}" alt="Mohammed EL-IDRISSI - The Author of this Blog"/>
+    <h2>EL-IDRISSI'S BLOG</h2>
+    </header>
+    <p>Welcome to my blog. I'm Mohammed EL-IDRISSI and I'm a web developer. I love to write about web development and other stuff.</p>
+</section>
+<section id="latest-posts">
+    <h2>My Latest Thoughts</h2>
+    <ul>
+       {% for post in posts %}
+
+      {% include 'blog/includes/post.html' %}
+       {% endfor %}
+       
+    </ul>
+</section>
+<section id="about">
+    <h2>What I Do</h2>
+    <p>I'm a web developer and I love programing,I love to help others and I enjoy exploring new technologies in general!</p>
+    <p>My goal is to build a community of like-minded people who are passionate about web development and who want to learn from each other and grow together as a community.</p>
+</section>
+{% endblock %}

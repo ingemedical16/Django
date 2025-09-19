@@ -31,7 +31,7 @@
 
     <!-- Comment Form -->
     <section class="comment-form">
-        <form method="post" action="{% url 'post_detail' post.slug %}">
+        <form method="post" action="">
             {% csrf_token %}
             <h2>Leave a Comment</h2>
             {% if comment_form.errors %}
