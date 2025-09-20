@@ -10,6 +10,8 @@
 {% endblock %}
 
 {% block content %}
+
+  <main>
   {% if comment_form.errors %}
     <div id="alert">
       <h2>Saving the comment failed!</h2>
@@ -26,7 +28,7 @@
       {% endfor %}
     </div>
     <div id="read-later">
-        <form method="post" action="{% url 'read_later' %}">
+         <form action="{% url "read_later" %}" method="POST" novalidate>
           {% csrf_token %}
           <input type="hidden" name="post_id" value="{{ post.id }}">
           <button type="submit" > Read Later</button>
@@ -38,7 +40,6 @@
     </article>
   </section>
 
-  <main>
     <div class="post-content">
       {{ post.content|linebreaks }}
     </div>
