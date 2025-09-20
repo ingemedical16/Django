@@ -10,11 +10,13 @@
   color: black;
   transition: all 0.2s ease;
   padding: 1rem;
+  border-radius: 12px;
+  display: block;
 }
 
 .post a:hover,
 .post a:active {
-  transform: scale(1.1);
+  transform: scale(1.05);
   background-color: #390281;
   color: white;
 }
@@ -28,6 +30,7 @@
 
 .post h3 {
   margin: 0.25rem 0;
+  font-size: 1.2rem;
 }
 
 .post time {
@@ -40,4 +43,59 @@
 .post:hover time,
 .post:active time {
   color: white;
+}
+
+/* =====================
+   Responsive Adjustments
+   ===================== */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .post a {
+    padding: 0.75rem;
+  }
+
+  .post img {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .post h3 {
+    font-size: 1.05rem;
+  }
+
+  .post time {
+    font-size: 0.8rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .post {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  .post img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 8px; /* less circular, better for list-style */
+  }
+
+  .post a {
+    padding: 0.5rem;
+    transform: none; /* avoid zooming on small screens */
+  }
+
+  .post h3 {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .post time {
+    font-size: 0.75rem;
+    margin: 0.2rem 0;
+  }
 }

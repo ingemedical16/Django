@@ -4,11 +4,9 @@
 }
 
 /* Stored Posts Component Styles */
-
-
 .stored-posts {
   max-width: 800px;
-   margin: 8rem auto 3rem auto;
+  margin: 8rem auto 3rem auto;
   padding: 0 1rem;
   font-family: sans-serif;
 }
@@ -38,6 +36,7 @@
 .post-summary {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
 }
 
 .post-summary h3 {
@@ -81,12 +80,54 @@
   color: #0056b3;
 }
 
-/* Responsive tweaks */
+/* =====================
+   Responsive Adjustments
+   ===================== */
+
+/* Tablets */
+@media (max-width: 900px) {
+  .stored-posts {
+    padding: 0 1.5rem;
+  }
+
+  .stored-posts h2 {
+    font-size: 1.8rem;
+  }
+
+  .post-summary h3 {
+    font-size: 1.35rem;
+  }
+
+  .post-summary p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile */
 @media (max-width: 600px) {
+  .stored-posts {
+    margin: 6rem auto 2rem auto;
+    padding: 0 1rem;
+  }
+
   .stored-posts h2 {
     font-size: 1.6rem;
   }
+
+  .post-summary {
+    gap: 0.3rem;
+  }
+
   .post-summary h3 {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
+  }
+
+  .post-summary p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .no-saved-posts {
+    font-size: 1rem;
   }
 }

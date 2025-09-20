@@ -1,9 +1,10 @@
-
+/* Navigation */
 #main-navigation {
   background-color: #390281;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
+/* Summary Section */
 #summary {
   margin: 8rem auto 3rem auto;
   padding: 2rem;
@@ -13,7 +14,7 @@
   background-color: #5706c0;
   position: relative;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  height: 22rem;
+  min-height: 22rem;
 }
 
 #summary h2 {
@@ -47,31 +48,36 @@
 
 #summary a {
   color: white;
-  text-align: none;
+  text-decoration: none;
 }
 
 #summary time {
   font-weight: bold;
-} 
-#read-later {
- margin: 2rem 0;
 }
+
+#read-later {
+  margin: 2rem 0;
+}
+
 #read-later button {
   background-color: transparent;
   border: 1px solid white;
   padding: 0.5rem 2rem;
-  font:inherit;
+  font: inherit;
   color: white;
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
   transition: background 0.3s ease;
 }
+
 #read-later button:hover,
 #read-later button:active {
-  background-color:white;
+  background-color: white;
   color: #390281;
 }
+
+/* Main content */
 main {
   width: 90%;
   max-width: 90rem;
@@ -81,20 +87,19 @@ main {
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
+
 .tag {
   background-color: white;
   color: #390281;
-  padding: 0.5rem 1rem ;
+  padding: 0.5rem 1rem;
   border-radius: 8px;
-
 }
+
 /* ===== Comment Form ===== */
-/* Hide the comment form by default (you already have inline style, but better done in CSS) */
 #comment-form {
   display: none;
 }
 
-/* Style for the “Add Comment” link */
 .add-comment-link {
   margin-top: 2rem;
 }
@@ -130,7 +135,6 @@ main {
 .form-group {
   margin-bottom: 1rem;
 }
-
 
 .form-group label {
   display: block;
@@ -169,6 +173,7 @@ main {
 .btn-submit:hover {
   background-color: #5706c0;
 }
+
 .errorlist {
   list-style: none;
   margin: 0.5rem 0;
@@ -185,6 +190,7 @@ main {
   border-color: #d6000b;
   background-color: #ffe6e7;
 }
+
 #alert {
   margin: 8rem auto 3rem auto;
   border: 1px solid #d6000b;
@@ -202,6 +208,7 @@ main {
   padding: 0.25rem 1.5rem;
   border-radius: 6px;
 }
+
 /* ===== Comments Section ===== */
 #comments {
   margin-top: 3rem;
@@ -254,5 +261,77 @@ main {
 .no-comments {
   font-style: italic;
   color: #666;
-  
+}
+
+/* =====================
+   Responsive Adjustments
+   ===================== */
+
+/* Tablets */
+@media (max-width: 768px) {
+  #summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: auto; /* allow natural height */
+    padding: 2rem 1rem;
+  }
+
+  #summary h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  #summary article {
+    position: static;
+    margin-top: 1.5rem;
+    text-align: center;
+    padding: 0;
+  }
+
+  #summary article img {
+    width: 10rem;
+    height: 10rem;
+    transform: rotateZ(0deg);
+  }
+
+  main {
+    padding: 1.5rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  #summary {
+    padding: 1.5rem;
+    margin: 6rem auto 2rem auto;
+  }
+
+  #summary h2 {
+    font-size: 2rem;
+  }
+
+  #summary article img {
+    width: 7rem;
+    height: 7rem;
+  }
+
+  #read-later button {
+    width: 100%;
+    padding: 0.6rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  .btn-submit {
+    width: 100%;
+  }
+
+  #alert {
+    margin: 6rem auto 2rem auto;
+    padding: 0.75rem;
+  }
 }
