@@ -60,3 +60,6 @@ class PostDetailView(View):
             "comments": post.comments.all().order_by("-date")
         }
 
+class ReadLaterView(View):
+    def post(self, request):
+        pass
