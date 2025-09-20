@@ -38,7 +38,7 @@ class PostDetailView(View):
     def get(self, request, slug):
         post = get_object_or_404(Post, slug=slug)
         comment_form = CommentForm()
-        return render(request, self.template_name, self.get_context(post, comment_form))
+        return render(request, self.template_name, self.get_context(request,post, comment_form))
 
     def post(self, request, slug):
         post = get_object_or_404(Post, slug=slug)
@@ -50,14 +50,19 @@ class PostDetailView(View):
             return redirect("post_detail", slug=post.slug)
 
         # If form invalid, render with same context but filled-in form
-        return render(request, self.template_name, self.get_context(post, comment_form))
+        return render(request, self.template_name, self.get_context(request,post, comment_form))
 
-    def get_context(self, post, comment_form):
+    def get_context(self,request, post, comment_form):
+        stored_posts = request.session.get("stored_posts")
+        is_saved_for_later = False
+        if stored_posts is not None:
+            is_saved_for_later = post.id in stored_posts
         return {
             "post": post,
             "post_tags": post.tags.all(),
             "comment_form": comment_form,
-            "comments": post.comments.all().order_by("-date")
+            "comments": post.comments.all().order_by("-date"),
+            "saved_for_later": is_saved_for_later
         }
 
 class ReadLaterView(View):
@@ -82,6 +87,9 @@ class ReadLaterView(View):
         post_id = int(request.POST["post_id"])
         if post_id not in stored_posts:
             stored_posts.append(post_id)
-            request.session["stored_posts"] = stored_posts
+        else:
+            stored_posts.remove(post_id)   
+            
+        request.session["stored_posts"] = stored_posts
             
         return redirect("index")
