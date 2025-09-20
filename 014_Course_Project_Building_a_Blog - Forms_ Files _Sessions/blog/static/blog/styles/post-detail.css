@@ -74,6 +74,31 @@ main {
 
 }
 /* ===== Comment Form ===== */
+/* Hide the comment form by default (you already have inline style, but better done in CSS) */
+#comment-form {
+  display: none;
+}
+
+/* Style for the “Add Comment” link */
+.add-comment-link {
+  margin-top: 2rem;
+}
+
+.add-comment-link a {
+  display: inline-block;
+  color: #fff;
+  background-color: #390281;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.add-comment-link a:hover {
+  background-color: #5706c0;
+}
+
 .comment-form {
   margin: 2rem 0;
   padding: 1.5rem;

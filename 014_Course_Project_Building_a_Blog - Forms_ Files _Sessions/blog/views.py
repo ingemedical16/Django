@@ -34,16 +34,11 @@ class PostListView(ListView):
 class PostDetailView(View):
     template_name = "blog/post-detail.html"
     model = Post
-    
+
     def get(self, request, slug):
         post = get_object_or_404(Post, slug=slug)
-        context = {
-            "post": post,
-            "post_tags": post.tags.all(),
-            "comment_form": CommentForm(),
-            "comments": post.comments.order_by("-date")
-        }
-        return render(request, self.template_name, context)
+        comment_form = CommentForm()
+        return render(request, self.template_name, self.get_context(post, comment_form))
 
     def post(self, request, slug):
         post = get_object_or_404(Post, slug=slug)
@@ -53,13 +48,15 @@ class PostDetailView(View):
             comment.post = post
             comment.save()
             return redirect("post_detail", slug=post.slug)
-        
-        context = {
+
+        # If form invalid, render with same context but filled-in form
+        return render(request, self.template_name, self.get_context(post, comment_form))
+
+    def get_context(self, post, comment_form):
+        return {
             "post": post,
             "post_tags": post.tags.all(),
             "comment_form": comment_form,
-            "comments": post.comments.order_by("-date")
+            "comments": post.comments.all().order_by("-date")
         }
-        return render(request, self.template_name, context)
-
 
