@@ -1,0 +1,133 @@
+#main-navigation {
+  background-color: #390281;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Stored Posts Component Styles */
+.stored-posts {
+  max-width: 800px;
+  margin: 8rem auto 3rem auto;
+  padding: 0 1rem;
+  font-family: sans-serif;
+}
+
+.stored-posts h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+  text-align: center;
+}
+
+.stored-posts__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.stored-posts__item {
+  border-bottom: 1px solid #ddd;
+  padding: 1rem 0;
+}
+
+.stored-posts__item:last-child {
+  border-bottom: none;
+}
+
+.post-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.post-summary h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.stored-posts__link {
+  text-decoration: none;
+  color: #007bff;
+  transition: color 0.3s ease;
+}
+
+.stored-posts__link:hover,
+.stored-posts__link:focus {
+  color: #0056b3;
+}
+
+.post-summary p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+/* “no posts” message styling */
+.no-saved-posts {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.no-saved-posts a {
+  color: #007bff;
+  text-decoration: none;
+  border-bottom: 1px dotted #007bff;
+}
+
+.no-saved-posts a:hover,
+.no-saved-posts a:focus {
+  color: #0056b3;
+}
+
+/* =====================
+   Responsive Adjustments
+   ===================== */
+
+/* Tablets */
+@media (max-width: 900px) {
+  .stored-posts {
+    padding: 0 1.5rem;
+  }
+
+  .stored-posts h2 {
+    font-size: 1.8rem;
+  }
+
+  .post-summary h3 {
+    font-size: 1.35rem;
+  }
+
+  .post-summary p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .stored-posts {
+    margin: 6rem auto 2rem auto;
+    padding: 0 1rem;
+  }
+
+  .stored-posts h2 {
+    font-size: 1.6rem;
+  }
+
+  .post-summary {
+    gap: 0.3rem;
+  }
+
+  .post-summary h3 {
+    font-size: 1.2rem;
+  }
+
+  .post-summary p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .no-saved-posts {
+    font-size: 1rem;
+  }
+}

@@ -2,16 +2,21 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
   font-family: 'Open Sans', 'Lato', sans-serif;
+  font-size: 16px;
 }
 
 body {
-  margin: 0;
+  background-color: #e7e7e7;
+  line-height: 1.5;
 }
 
+/* Headings */
 h1,
 h2,
 h3 {
@@ -19,6 +24,7 @@ h3 {
   font-weight: bold;
 }
 
+/* Navigation */
 #main-navigation {
   width: 100%;
   height: 5rem;
@@ -29,12 +35,18 @@ h3 {
   position: absolute;
   top: 0;
   left: 0;
+  background-color: #390281; /* add bg so text is visible */
+}
+
+#main-navigation h1 {
+  font-size: 1.5rem;
 }
 
 #main-navigation a {
   text-decoration: none;
   color: white;
   font-weight: bold;
+  margin-left: 1rem;
 }
 
 #main-navigation a:hover,
@@ -45,4 +57,65 @@ h3 {
 #main-navigation h1 a:hover,
 #main-navigation h1 a:active {
   color: white;
+}
+
+/* Footer */
+#main-footer {
+  width: 100%;
+  min-height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #390281;
+  color: white;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+/* =====================
+   Responsive Adjustments
+   ===================== */
+
+/* Tablets */
+@media (max-width: 768px) {
+  #main-navigation {
+    padding: 0 5%;
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #main-navigation h1 {
+    margin-bottom: 0.5rem;
+  }
+
+  #main-navigation a {
+    margin: 0.5rem 0;
+    display: inline-block;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  html {
+    font-size: 14px; /* slightly smaller base */
+  }
+
+  #main-navigation {
+    padding: 0.5rem;
+  }
+
+  #main-navigation h1 {
+    font-size: 1.2rem;
+  }
+
+  #main-navigation a {
+    font-size: 0.9rem;
+  }
+
+  #main-footer {
+    font-size: 0.85rem;
+    padding: 0.5rem;
+  }
 }

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  All Stored Posts
+{% endblock %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static 'blog/styles/stored-posts.css' %}">
+{% endblock %}
+
+{% block content %}
+  <section class="stored-posts">
+  <h2>Posts You've Saved for Later</h2>
+  {% if has_posts %}
+    <ul class="stored-posts__list">
+      {% for post in posts %}
+        <li class="stored-posts__item">
+          <article class="post-summary">
+            <h3>
+              <a href="{% url 'post_detail' post.slug %}"
+                 class="stored-posts__link">{{ post.title }}</a>
+            </h3>
+            <p>{{ post.excerpt }}</p>
+          </article>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="no-saved-posts">
+      You haven't saved any posts for later. Go back to the
+      <a href="{% url 'posts' %}">All Posts</a> page to save some!
+    </p>
+  {% endif %}
+</section>
+
+{% endblock %}
