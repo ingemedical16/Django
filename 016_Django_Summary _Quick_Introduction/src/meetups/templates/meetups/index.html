@@ -10,5 +10,22 @@
 <body>
     <h1>All Meetups</h1>
     <p>List of all meetups will be displayed here.</p>
+    <hr>
+    <p>Total meetups: {{ meetups|length }}</p>
+
+    {% if meetups %}
+
+    <ul>
+        {% for meetup in meetups %}
+            <li>
+                <h2>{{ meetup.title }}</h2>
+                <p>Location: {{ meetup.location }}</p>
+                <a href="/meetups/{{ meetup.slug }}">View Details</a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>No meetups available.</p>
+    {% endif %}
 </body>
 </html>
