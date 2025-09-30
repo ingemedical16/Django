@@ -13,17 +13,17 @@
           <p>Details about this meetup</p>
           {% endblock header_content %}
 {% block content %}
-   
+   {% if meetup %}
    
         <article>
-            <img src="" alt="{{ meetup_title }}">
+            <img src="" alt="{{ title }}">
             <section id="location">
                 <h2>Meetup location</h2>
-                <address>This meetup tackes place in <span>{{ meetup_location }}</span>(ADDRESS.)</address>
+                <address>This meetup tackes place in <span>location</span>(ADDRESS.)</address>
             </section>
             <section id="details">
                 <h2>What's This Meetup About?</h2>
-                <p>{{ meetup_description }}</p>
+                <p>{{ description }}</p>
                 <footer>
                     <p>Need more details?? Please <a href=""> contact the organizer</a> (but don't spam us)</p>
             </section>
@@ -32,5 +32,8 @@
                Form
             </section>
         </article>
+    {% else %}
+        <p>Sorry, we couldn't find this meetup.</p>
+    {% endif %} 
     
     {% endblock content %}
