@@ -14,9 +14,6 @@ def meetup_details(request, meetup_slug):
         selected_meetup = Meetup.objects.get(slug=meetup_slug)
         return render(request, 'meetups/meetup-details.html', {
             'meetup': selected_meetup,
-            'title': selected_meetup.title,
-            'description': selected_meetup.description,
-            'imageUrl': selected_meetup.image.url
         })
     except Exception as e:
         print(e)
