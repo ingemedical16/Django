@@ -16,6 +16,7 @@ def meetup_details(request, meetup_slug):
             'meetup': selected_meetup,
             'title': selected_meetup.title,
             'description': selected_meetup.description,
+            'imageUrl': selected_meetup.image.url
         })
     except Exception as e:
         print(e)
