@@ -30,7 +30,7 @@ def meetup_details(request, meetup_slug):
 
                 # Lier le participant au meetup
                 selected_meetup.participants.add(participant)
-                return redirect('confirm-registration')
+                return redirect('confirm-registration', meetup_slug=selected_meetup.slug)
 
         return render(request, 'meetups/meetup-details.html', {
                 'meetup': selected_meetup,
@@ -43,5 +43,8 @@ def meetup_details(request, meetup_slug):
             'title': 'Meetup Not Found',
         }) 
 
-def confirm_registration(request):
-    return render(request,'meetups/registration-success.html') 
+def confirm_registration(request, meetup_slug):
+    meetup = Meetup.objects.get(slug=meetup_slug)
+    return render(request,'meetups/registration-success.html',{
+        'meetup': meetup
+    }) 
